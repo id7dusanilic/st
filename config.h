@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Mononoki Nerd Font:size=15:antialias=true:autohint=true";
+static char *font = "Mononoki Nerd Font:size=13:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -74,7 +74,7 @@ static unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-char *termname = "st-256color";
+char *termname = "st";
 
 /*
  * spaces per tab
@@ -94,47 +94,44 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.9;
+float alpha = 1.0;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"#1d1f21",
-	"#cc6666",
-	"#b5bd68",
-	"#f0c674",
-	"#81a2be",
-	"#b294bb",
-	"#8abeb7",
-	"#c5c8c6",
 
-	/* 8 bright colors */
-	"#666666",
-	"#d54e53",
-	"#b9ca4a",
-	"#e7c547",
-	"#7aa6da",
-	"#c397d8",
-	"#70c0b1",
-	"#eaeaea",
+  /* 8 normal colors */
+  [0] = "#272822", /* black   */
+  [1] = "#f92672", /* red     */
+  [2] = "#a6e22e", /* green   */
+  [3] = "#f4bf75", /* yellow  */
+  [4] = "#66d9ef", /* blue    */
+  [5] = "#ae81ff", /* magenta */
+  [6] = "#a1efe4", /* cyan    */
+  [7] = "#f8f8f2", /* white   */
 
-	[255] = 0,
+  /* 8 bright colors */
+  [8]  = "#75715e", /* black   */
+  [9]  = "#f92672", /* red     */
+  [10] = "#a6e22e", /* green   */
+  [11] = "#f4bf75", /* yellow  */
+  [12] = "#66d9ef", /* blue    */
+  [13] = "#ae81ff", /* magenta */
+  [14] = "#a1efe4", /* cyan    */
+  [15] = "#f9f8f5", /* white   */
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#222222",
-	"#dddddd",
-	"#d7d7d7",
+  /* special colors */
+  [256] = "#272822", /* background */
+  [257] = "#f8f8f2", /* foreground */
 };
-
 
 /*
  * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
+ * foreground, background, cursor
  */
 unsigned int defaultfg = 257;
 unsigned int defaultbg = 256;
-static unsigned int defaultcs = 15;
-static unsigned int defaultrcs = 15;
+unsigned int defaultcs = 257;
+unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
