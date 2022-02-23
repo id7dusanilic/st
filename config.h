@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Mononoki Nerd Font:size=13:antialias=true:autohint=true";
+static char *font = "Mononoki Nerd Font:size=12:antialias=true:autohint=true";
 static int borderpx = 10;
 
 /*
@@ -74,7 +74,7 @@ static unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-char *termname = "st";
+char *termname = "st-256color";
 
 /*
  * spaces per tab
